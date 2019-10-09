@@ -43,11 +43,6 @@ nmap \z :w<CR>:!open %<CR><CR>
 nmap j gj
 nmap k gk
 
-" --------------------Adding minimal stuff from tpope
-" execute pathogen#infect()
-" syntax on
-" filetype plugin indent on
-
 " You don't know what you're missing if you don't use this.
 " Alternating between two buffers
 nmap <C-e> :e#<CR>
@@ -175,6 +170,7 @@ autocmd BufEnter *.rb iabbr ppp require 'pp'; pp
 " ----------------------------------------------------------------------------
 
 set autoindent              " Carry over indenting from previous line
+set paste!
 " set autoread                " Don't bother me hen a file changes
 set autowrite               " Write on :next/:prev/^Z
 set backspace=indent,eol,start
@@ -236,6 +232,11 @@ set notitle                 " Don't set the title of the Vim window
 set wildmenu                " Show possible completions on command line
 set wildmode=list:longest,full " List all options and complete
 set wildignore=*.class,*.o,*~,*.pyc,.git,node_modules  " Ignore certain files in tab-completion
+
+" Sourcing a "default file" to preserve the previous coursor position between sessions
+source $VIMRUNTIME/vimrc_example.vim
+
+
 
 " Essential for filetype plugins.
 filetype plugin indent on
@@ -353,6 +354,19 @@ endfunction
 " ----------------------------------------------------------------------------
 
 " Make sure colored syntax mode is on, and make it Just Work with 256-color terminals.
+
+" option name               default     optional
+" ------------------------------------------------
+" g:solarized_termcolors=   16      |   256
+" g:solarized_termtrans =   0       |   1
+" g:solarized_degrade   =   0       |   1
+" g:solarized_bold      =   1       |   0
+" g:solarized_underline =   1       |   0
+" g:solarized_italic    =   1       |   0
+" g:solarized_contrast  =   "normal" |   "high" or "low"
+" g:solarized_visibility=   "normal" |   "high" or "low"
+" ------------------------------------------------
+
 set background=dark
 colorscheme solarized
 " let g:rehash256 = 1 " Something to do with Molokai?
